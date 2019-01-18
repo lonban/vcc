@@ -1,7 +1,6 @@
 {
     "name": "lonban/vcc",
-    "description": "Vcc",
-    "license": "MIT",
+    "license": "Apache-2.0",
     "type": "laravel-library",
     "authors": [
         {
