@@ -19,7 +19,7 @@ class FileClass
         self::$type = config('vcc.file.type');
         self::$path = config('vcc.file.path');
         if(empty(self::$path)){
-            self::$path = \Vcc::selfName(5);
+            self::$path = \Vcc::getName();
         }
         return Storage::disk(self::$drive);
     }

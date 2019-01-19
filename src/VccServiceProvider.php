@@ -14,6 +14,7 @@ class VccServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        \Vcc::$path = __DIR__;
         $this->loadViewsFrom(__DIR__ . '/resources/views', 'vcc');
         $this->loadRoutesFrom(__DIR__.'/routes.php');
         $this->mergeConfigFrom(__DIR__ . '/config/vcc.php', 'vcc');
