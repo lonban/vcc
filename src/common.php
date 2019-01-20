@@ -1,6 +1,6 @@
 <?php
 
-class Vcc
+class Vcc extends \Lonban\Vcc\Classes\PathClass
 {
-    //
+    static $path = __DIR__;
 }
