@@ -6,5 +6,5 @@ class Vcc extends \Lonban\Vcc\Classes\PathClass
 }
 class VccFile extends \Lonban\Vcc\Classes\FileClass
 {
-    static $path = __DIR__;
+    //
 }
