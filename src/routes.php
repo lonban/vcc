@@ -11,6 +11,6 @@
 |
 */
 
-Route::group(['prefix'=>'vcc','namespace'=>'Lonban\vcc\Controllers'],function(){
+Route::group(['prefix'=>'vcc','namespace'=>'Lonban\Vcc\Controllers'],function(){
     Route::resource('/','IndexController');
 });

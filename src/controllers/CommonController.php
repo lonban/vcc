@@ -2,8 +2,10 @@
 
 namespace Lonban\Vcc\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Routing\Controller;
+use Illuminate\Foundation\Bus\DispatchesJobs;
+use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Support\Facades\App;
 
 /**
@@ -13,11 +15,13 @@ use Illuminate\Support\Facades\App;
  *   @OA\Contact(email="454595025@qq.com")
  * )
  */
-class CommonController extends Controller
+class CommonController extends BaseController
 {
+    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
     public function __construct()
     {
-        //
+        App::setLocale('zh');
     }
 
     public static function newSelf()
