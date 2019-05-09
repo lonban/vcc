@@ -4,8 +4,13 @@ namespace Lonban\Vcc\Classes;
 
 class StringClass
 {
-    public static function getRandomStr($length=10,$type=0,$convert=0)
+    public static function getRandomStr($length=0,$type=0,$convert=0,$move=0)
     {
+        if(!isset($length)){
+            $length = mt_rand(2,16);
+        }else if(!isset($move)){
+            $length = mt_rand(2,$length);
+        }
         switch ($type){
             case 1:$chars='1234567890';
                 break;

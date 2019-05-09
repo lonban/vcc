@@ -4,19 +4,36 @@ namespace Lonban\Vcc\Classes;
 
 class BrowserClass
 {
-    public static function curl_get_file_contents($URL)
+    public static $data = null;
+
+    //不同环境下获取真实的IP
+    public static function getIp()
     {
-        $c = curl_init();
-        curl_setopt($c, CURLOPT_RETURNTRANSFER, 1);
-        //curl_setopt($c, CURLOPT_HEADER, 1);//输出远程服务器的header信息
-        curl_setopt($c, CURLOPT_USERAGENT, 'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 2.0.50727;http://www.baidu.com)');
-        curl_setopt($c, CURLOPT_URL, $URL);
-        $contents = curl_exec($c);
-        curl_close($c);
-        if($contents){
-            dd($contents);
-        }else{
-            return FALSE;
+        $data = self::$data;
+        if(!empty($_GET['ip'])){
+            return $_GET['ip'];
         }
+        if(!empty($data['real_ip'])){
+            return $data['real_ip'];
+        }
+        //判断服务器是否允许$_SERVER,不允许就使用getenv获取
+        if(isset($_SERVER) && defined('HTTP_X_FORWARDED_FOR')){
+            if(isset($_SERVER[HTTP_X_FORWARDED_FOR])){
+                $data['real_ip'] = $_SERVER[HTTP_X_FORWARDED_FOR];
+            }elseif(isset($_SERVER[HTTP_CLIENT_IP])) {
+                $data['real_ip'] = $_SERVER[HTTP_CLIENT_IP];
+            }else{
+                $data['real_ip'] = $_SERVER[REMOTE_ADDR];
+            }
+        }else{
+            if(getenv("HTTP_X_FORWARDED_FOR")){
+                $data['real_ip'] = getenv( "HTTP_X_FORWARDED_FOR");
+            }elseif(getenv("HTTP_CLIENT_IP")) {
+                $data['real_ip'] = getenv("HTTP_CLIENT_IP");
+            }else{
+                $data['real_ip'] = getenv("REMOTE_ADDR");
+            }
+        }
+        return self::$data['real_ip'] = preg_match ( '/[\d\.]{7,15}/', $data['real_ip'], $matches ) ? $matches [0] : '';
     }
 }
