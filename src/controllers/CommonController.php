@@ -58,12 +58,13 @@ class CommonController extends BaseController
         echo '执行的时间为'.sprintf( '%0.4f', ( $endTimes - $startTimes ) );
     }
 
-    public static function eTime2()
+    /*不准*/
+    public static function eTime2($obj)
     {
         //开始时间
         $time_start = microtime(true);
         //结束时间
         $time_end = microtime(true);
-        echo '执行的时间为'.$time_end - $time_start;
+        echo '执行的时间为'.($time_end - $time_start);
     }
 }

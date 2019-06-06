@@ -4,7 +4,18 @@ namespace Lonban\Vcc\Classes;
 
 class StringClass
 {
-    public static function getRandomStr($length=null,$type=null,$convert=null,$move=null)
+    public static function getRandomStr($length=null)
+    {
+        $length = $length?$length:mt_rand(2,16);
+        $chars='abcdefghijklmnopqrstuvwxyz0123456789.';
+        $str = '';
+        for ( $i = 0; $i < $length; $i++ ){
+            $str .= $chars[ mt_rand(0, strlen($chars) - 1) ]; //取字符数组 $chars 的任意元素
+        }
+        return trim($str,'.');
+    }
+
+    public static function getRandomStr2($length=null,$type=null,$convert=null,$move=null)
     {
         if(!isset($length)){
             $length = mt_rand(2,16);
