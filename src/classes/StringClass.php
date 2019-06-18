@@ -2,16 +2,37 @@
 
 namespace Lonban\Vcc\Classes;
 
+use Lonban\Vcc\Redis\VccCache;
+
 class StringClass
 {
     public static function getRandomStr($length=null)
     {
-        $length = $length?$length:mt_rand(2,16);
-        $chars='abcdefghijklmnopqrstuvwxyz0123456789.';
+        $length = $length?$length:mt_rand(2,12);
+        $chars='abcefghijklmnopqrstuvwxyz0123456789.';
         $str = '';
+        $strlen = strlen($chars);
         for ( $i = 0; $i < $length; $i++ ){
-            $str .= $chars[ mt_rand(0, strlen($chars) - 1) ]; //取字符数组 $chars 的任意元素
+            $str .= $chars[ mt_rand(0, $strlen - 1) ]; //取字符数组 $chars 的任意元素
         }
+        return trim($str,'.');
+    }
+
+    /*慢160倍*/
+    public static function getRandomStr_R($length=null,$auto=null)
+    {
+        $str = VccCache::get('getRandomStr');
+        if(!$str || VccCache::incr('getRandomStr_Views')>1000){
+            $str = self::getRandomStr(32);
+            VccCache::create('getRandomStr',$str);
+            VccCache::update('getRandomStr_Views',0);
+        }
+        if($auto){
+            $length = mt_rand(2,$length);
+        }else{
+            $length = $length?$length:mt_rand(2,8);
+        }
+        $str = substr($str,mt_rand(1,23),$length);
         return trim($str,'.');
     }
 

@@ -7,57 +7,74 @@ use Illuminate\Support\Facades\Redis as Redis_Y;
 class VccCache
 {
     public static $redis = null;
+    public static $model = null;
 
-    public function __construct()
+    public function __construct($model='vcc_')
     {
         self::$redis = Redis_Y::connection('cache');/*连接*/
+        self::$model = $model;
     }
 
     public static function newSelf()
     {
-        if(isset(self::$redis)){
-            return self::$redis;
-        }else{
-            return self::$redis = Redis_Y::connection('cache');/*连接*/
+        if(!isset(self::$redis) || !isset(self::$model)){
+            new self();
         }
     }
 
     /*改*/
     public static function update($k,$v)
     {
-        $redis = self::newSelf();
-        return $redis->getset('vcc_:'.$k, $v);
+        self::newSelf();
+        $redis = self::$redis;
+        $model = self::$model;
+        return $redis->getset($model.':'.$k, $v);
+    }
+    public static function push($k,$v)
+    {
+        self::newSelf();
+        $redis = self::$redis;
+        $model = self::$model;
+        return $redis->append($model.':'.$k,$v);
     }
     /*自增*/
     /*public static function urlIncr($url,$key)
     {
-        $redis = self::newSelf();
-        return $redis->incr('vcc_:'.$url.'['.$key.']');
+        self::newSelf();
+        $redis = self::$redis;
+        $model = self::$model;
+        return $redis->incr($model.':'.$url.'['.$key.']');
     }*/
     public static function incr($k)
     {
-        $redis = self::newSelf();
-        return $redis->incr('vcc_:'.$k);
+        self::newSelf();
+        $redis = self::$redis;
+        $model = self::$model;
+        return $redis->incr($model.':'.$k);
     }
-
-    /*增*/
     public static function create($k,$v)
     {
-        $redis = self::newSelf();
-        return $redis->set('vcc_:'.$k, $v);
+        self::newSelf();
+        $redis = self::$redis;
+        $model = self::$model;
+        return $redis->set($model.':'.$k, $v);
     }
 
     /*查*/
     public static function get($k)
     {
-        $redis = self::newSelf();
-        return $redis->get('vcc_:'.$k);
+        self::newSelf();
+        $redis = self::$redis;
+        $model = self::$model;
+        return $redis->get($model.':'.$k);
     }
     public static function all()
     {
-        $redis = self::newSelf();
+        self::newSelf();
+        $redis = self::$redis;
+        $model = self::$model;
         $data = [];
-        foreach($redis->keys('vcc_:*') as $v){
+        foreach($redis->keys($model.':*') as $v){
             $data[] = $v.'::'.$redis->get($v);
         }
         return $data;
@@ -66,14 +83,18 @@ class VccCache
     /*删*/
     public static function delete($k)
     {
-        $redis = self::newSelf();
-        return $redis->del('vcc_:'.$k);
+        self::newSelf();
+        $redis = self::$redis;
+        $model = self::$model;
+        return $redis->del($model.':'.$k);
     }
     public static function deleteAll()
     {
-        $redis = self::newSelf();
+        self::newSelf();
+        $redis = self::$redis;
+        $model = self::$model;
         $i = 0;
-        foreach($redis->keys('vcc_:*') as $v){
+        foreach($redis->keys($model.':*') as $v){
             $i = $i+$redis->del($v);
         }
         return $i;
