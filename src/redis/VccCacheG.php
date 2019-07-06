@@ -4,15 +4,15 @@ namespace Lonban\Vcc\Redis;
 
 use Illuminate\Support\Facades\Redis as Redis_Y;
 
-class VccCache
+class VccCacheG
 {
     public static $redis = null;
     public static $model = null;
 
     public function __construct($name=1)
     {
-        self::$model = 'vcc_cache_'.$name.'_';
-        self::$redis = Redis_Y::connection('cache');/*连接*/
+        self::$model = 'vcc_cache_group_'.$name.'_';
+        self::$redis = Redis_Y::connection('default');/*连接*/
     }
 
     public static function newSelf()
@@ -23,64 +23,58 @@ class VccCache
     }
 
     /*改*/
-    public static function update($name,$val)
+    public static function update($name,$key,$val)
     {
         self::newSelf();
         $redis = self::$redis;
         $model = self::$model;
-        return $redis->getset($model.$name,$val);
+        return $redis->lset($model.$name, $key, $val);
     }
-    public static function incr($name,$max=100000)
-    {
-        self::newSelf();
-        $redis = self::$redis;
-        $model = self::$model;
-        if(($i = $redis->incr($model.$name))>$max){
-            $redis->del($model.$name);
-            return false;
-        }
-        return $i;
-    }
-    public static function push($name,$val,$max=1000000)
-    {
-        self::newSelf();
-        $redis = self::$redis;
-        $model = self::$model;
-        if($redis->strlen ($model.$name)>$max){
-            $redis->del($model.$name);
-            return false;
-        }
-        return $redis->append($model.$name,$val);
-    }
-    /*$time秒*/
-    public static function create($name,$val,$time=null)
+
+    /*增*/
+    public static function create($name,$val)
     {
         self::newSelf();
         $redis = self::$redis;
         $model = self::$model;
         $redis->sadd($model.'name', $model.$name);
-        if($time){
-            return $redis->setex($model.$name, $time, $val);
-        }
-        return $redis->set($model.$name, $val);
+        return $redis->rpush($model.$name, $val);
     }
 
     /*查*/
-    public static function get($name)
+    public static function get($name,$key,$key2=null)
     {
         self::newSelf();
         $redis = self::$redis;
         $model = self::$model;
-        return $redis->get($model.$name);
+        if($key2){
+            return $redis->lrange($model.$name, $key, $key2);
+        }
+        return $redis->lindex($model.$name, $key);
     }
-    public static function all()
+    public static function all($name,$type=null)
+    {
+        self::newSelf();
+        $redis = self::$redis;
+        $model = self::$model;
+        if(!$type){
+            return $redis->lrange($model.$name, 0, -1);
+        }
+        if($type=='len'){
+            return $redis->llen($model.$name);
+        }
+        if($type=='all'){
+            return ['data'=>$redis->lrange($model.$name, 0, -1),'len'=>$redis->llen($model.$name)];
+        }
+    }
+    public static function allX()
     {
         self::newSelf();
         $redis = self::$redis;
         $model = self::$model;
         $all = [];
         foreach($redis->smembers($model.'name') as $v){
-            $all[$v] = $redis->get($v);
+            $all[$v] = $redis->lrange($v, 0, -1);
         }
         return $all;
     }
@@ -94,7 +88,7 @@ class VccCache
         $redis->srem($model.'name',  $model.$name);
         return $redis->del($model.$name);
     }
-    public static function deleteAll()
+    public static function deleteX()
     {
         self::newSelf();
         $redis = self::$redis;

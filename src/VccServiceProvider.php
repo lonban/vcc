@@ -14,16 +14,20 @@ class VccServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->loadViewsFrom(__DIR__ . '/resources/views', 'vcc');
-        $this->loadRoutesFrom(__DIR__.'/routes.php');
-        $this->mergeConfigFrom(__DIR__ . '/config/vcc.php', 'vcc');
+        $this->loadRoutesFrom(__DIR__.'/routes/api.php');
+        $this->loadRoutesFrom(__DIR__.'/routes/web.php');
         $this->loadMigrationsFrom(__DIR__.'/database/migrations');
         $this->loadTranslationsFrom(__DIR__.'/lang', 'vcc');
+        $this->mergeConfigFrom(__DIR__ . '/config/config.php', 'vcc');
+        $this->loadViewsFrom(__DIR__ . '/resources/views', 'vcc');
         $this->publishes([
-            __DIR__.'/resources/views' => base_path('resources/views/vcc'),
-            __DIR__ . '/config/vcc.php' => config_path('vcc.php'),
             __DIR__.'/lang' => resource_path('lang/vcc'),
-            __DIR__.'/database/migrations/' => database_path('migrations')
+            __DIR__ . '/config/config.php' => config_path('vcc.php'),
+            __DIR__.'/database/migrations/' => database_path('migrations'),
+            __DIR__.'/resources/views' => base_path('resources/views/vcc'),
+            __DIR__.'/public/img' => base_path('public/vcc_img'),
+            __DIR__.'/public/css' => base_path('public/vcc_css'),
+            __DIR__.'/public/js' => base_path('public/vcc_js'),
         ]);
     }
 

@@ -22,10 +22,9 @@ class StringClass
     public static function getRandomStr_R($length=null,$auto=null)
     {
         $str = VccCache::get('getRandomStr');
-        if(!$str || VccCache::incr('getRandomStr_Views')>1000){
+        if(!$str || VccCache::incr('getRandomStr_Views',1000)===false){
             $str = self::getRandomStr(32);
             VccCache::create('getRandomStr',$str);
-            VccCache::update('getRandomStr_Views',0);
         }
         if($auto){
             $length = mt_rand(2,$length);
