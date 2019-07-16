@@ -2,7 +2,7 @@
 
 namespace Lonban\Vcc\Redis;
 
-use Illuminate\Support\Facades\Redis as Redis_Y;
+use Illuminate\Support\Facades\Redis;
 
 class VccCache
 {
@@ -12,7 +12,7 @@ class VccCache
     public function __construct($name=1)
     {
         self::$model = 'vcc_cache_'.$name.'_';
-        self::$redis = Redis_Y::connection('cache');/*连接*/
+        self::$redis = Redis::connection('cache');/*连接*/
     }
 
     public static function newSelf()
@@ -30,16 +30,23 @@ class VccCache
         $model = self::$model;
         return $redis->getset($model.$name,$val);
     }
-    public static function incr($name,$max=100000)
+    /*259200=3天*/
+    public static function incr($name,$max=100000,$time=259200)
     {
         self::newSelf();
         $redis = self::$redis;
         $model = self::$model;
-        if(($i = $redis->incr($model.$name))>$max){
+        $count = $redis->get($model.$name);
+        if(!$count){
+            $count = 1;$redis->setex($model.$name, $time, 1);
+        }else{
+            $count = $redis->incr($model.$name);
+        }
+        if($count>=$max){
             $redis->del($model.$name);
             return false;
         }
-        return $i;
+        return $count;
     }
     public static function push($name,$val,$max=1000000)
     {

@@ -2,9 +2,9 @@
 
 namespace Lonban\Vcc\Redis;
 
-use Illuminate\Support\Facades\Redis as Redis_Y;
+use Illuminate\Support\Facades\Redis;
 
-class Redis
+class VccCacheDB
 {
     public static $DB = null;
     public static $model = null;
@@ -14,7 +14,7 @@ class Redis
     {
         self::$DB = $model;
         self::$model = preg_replace("/[\\\|\/]/",'_',$model);
-        self::$redis = Redis_Y::connection('default');/*连接*/
+        self::$redis = Redis::connection('default');/*连接*/
     }
 
     /*获取*/
@@ -127,6 +127,14 @@ class Redis
             $all[$v] = $redis->get($v);
         }
         return $all;
+    }
+    /*删除*/
+    public static function delete2($name)
+    {
+        $redis = self::$redis;
+        $model = self::$model;
+        $redis->srem($model.'_name',  $model.'_'.$name);
+        return $redis->del($model.'_'.$name);
     }
 
     /*删除*/

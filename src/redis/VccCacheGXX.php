@@ -2,7 +2,7 @@
 
 namespace Lonban\Vcc\Redis;
 
-use Illuminate\Support\Facades\Redis as Redis_Y;
+use Illuminate\Support\Facades\Redis;
 
 class VccCacheGXX
 {
@@ -12,7 +12,7 @@ class VccCacheGXX
     public function __construct($name=1)
     {
         self::$model = 'vcc_cache_group_x_'.$name.'_';
-        self::$redis = Redis_Y::connection('default');/*连接*/
+        self::$redis = Redis::connection('cache');/*连接*/
     }
 
     public static function newSelf()

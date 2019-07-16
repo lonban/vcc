@@ -24,7 +24,7 @@ trait Monitor
 
     public function setRemind($model)
     {
-        $redis = new Redis($model);
+        $redis = new VccCacheDB($model);
         $redis->deleteAll();
     }
 }

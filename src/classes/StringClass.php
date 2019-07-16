@@ -6,10 +6,24 @@ use Lonban\Vcc\Redis\VccCache;
 
 class StringClass
 {
-    public static function getRandomStr($length=null)
+    public static function getRandomStr($length=null,$type='a-z0-9')
     {
-        $length = $length?$length:mt_rand(2,12);
-        $chars='abcefghijklmnopqrstuvwxyz0123456789.';
+        if(!$length){
+            $length = mt_rand(2,12);
+        }else if(is_array($length)){
+            $length = mt_rand($length[0],$length[1]);
+        }
+        switch($type){
+            case 'a-z':$chars='abcdefghijklmnopqrstuvwxyz';
+            break;
+            case 'a-z0-9':$chars='abcdefghijklmnopqrstuvwxyz0123456789';
+            break;
+            case 'a-z0-9.':$chars='abcdefghijklmnopqrstuvwxyz0123456789.';
+            break;
+            case 'a-zA-z0-9':$chars='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            break;
+            default:$chars=$type;
+        }
         $str = '';
         $strlen = strlen($chars);
         for ( $i = 0; $i < $length; $i++ ){
