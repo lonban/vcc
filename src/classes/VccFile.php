@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Lonban\Vcc\Exceptions\BasicException;
 
-class FileClass
+class VccFile
 {
     static $drive = null;
     static $path = null;
@@ -19,7 +19,7 @@ class FileClass
         self::$type = config('vcc.file.type');
         self::$path = config('vcc.file.path');
         if(empty(self::$path)){
-            self::$path = PathClass::getName();
+            self::$path = VccPath::getName();
         }
         return Storage::disk(self::$drive);
     }

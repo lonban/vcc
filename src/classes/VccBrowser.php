@@ -2,7 +2,7 @@
 
 namespace Lonban\Vcc\Classes;
 
-class BrowserClass
+class VccBrowser
 {
     public static $data = null;
 

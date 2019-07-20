@@ -2,7 +2,7 @@
 
 namespace Lonban\Vcc\Classes;
 
-class PathClass
+class VccPath
 {
     static $path = __DIR__; //项目路径，继承的子项目加上这一句就是子项目的路径，不加默认为vcc的项目路径
     /*

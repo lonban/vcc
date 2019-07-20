@@ -2,7 +2,7 @@
 
 namespace Lonban\Vcc\Classes;
 
-class CodeClass
+class VccEncrypt
 {
     /*$key = '12sdfsdafsdafafsdfsdfsdfsadfsdfsadfsdfasdfasdfdsafsdfsdfsdafsdfasdfsdfsdfafsdfsdfasdfsdfsadf3';
     $iv = substr($key, 0, 16);*/

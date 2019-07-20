@@ -24,23 +24,6 @@ class CommonController extends BaseController
         App::setLocale('zh');
     }
 
-    public static function newSelf()
-    {
-        //
-    }
-
-    public function __get($variable)
-    {
-        static::newSelf();
-        return static::$SELF->$variable;
-    }
-
-    public static function all()
-    {
-        static::newSelf();
-        return static::$SELF;
-    }
-
     public static function eTime()
     {
         //开始时间
