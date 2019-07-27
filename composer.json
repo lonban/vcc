@@ -11,7 +11,8 @@
     "require": {
         "php": "^7.0.0",
         "laravel/framework": "~5.5.0",
-        "predis/predis": "^1.1"
+        "predis/predis": "^1.1",
+        "simplesoftwareio/simple-qrcode": "^2.0"
     },
     "autoload": {
         "psr-4": {
