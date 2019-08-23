@@ -67,4 +67,22 @@ class VccBrowser
         ];
         return $agentarry[array_rand($agentarry,1)];
     }
+
+    //获取所在城市
+    public static function getCity()
+    {
+        // 获取当前位置所在城市
+        $getIp = self::getIp();
+        //$getIp = '220.181.108.93';
+        //$getIp = '123.125.71.107';
+        $content = file_get_contents('http://api.map.baidu.com/location/ip?ak=2TGbi6zzFm5rjYKqPPomh9GBwcgLW5sS&ip='.$getIp.'&coor=bd09ll');
+        $json = json_decode($content,true);
+        if(isset($json['content']['address_detail']['city'])){
+            return $json['content']['address_detail']['city'];
+        }else if(isset($json['content']['address'])){
+            return $json['content']['address'];
+        }else{
+            return '';
+        }
+    }
 }
