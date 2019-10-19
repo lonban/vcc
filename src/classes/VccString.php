@@ -18,9 +18,9 @@ class VccString
             break;
             case 'a-z0-9':$chars='abcdefghijklmnopqrstuvwxyz0123456789';
             break;
-            case 'a-zA-z0-9':$chars='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            case 'A-z0-9':$chars='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
             break;
-            case 'a-zA-z0-9@':$chars='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_ []{}<>~`+=,.;:/?|\\';
+            case 'A-z0-9@':$chars='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_ []{}<>~`+=,.;:/?|\\';
             break;
             default:$chars=$type;
         }
