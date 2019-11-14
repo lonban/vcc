@@ -147,7 +147,7 @@ class VccCacheDB
         return $value;
     }
 
-    /*创建特殊数据在模型里完成，比如分类后的url*/
+    /*创建特殊数据在模型里完成，比如分类后的url,$time秒*/
     public static function create2($name,$val,$time=null)
     {
         $db_name = self::$NAME['db_2'].$name;

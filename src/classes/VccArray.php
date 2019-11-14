@@ -47,6 +47,7 @@ class VccArray
     public static function ascData($data,$name)
     {
         if(!isset($data)){return 0;}
+        if(!is_array($data)){return 0;}
         $id = VccCache::get(self::$name.'asc_data'.$name);
         $max = count($data)-1;
         if(!isset($id)){

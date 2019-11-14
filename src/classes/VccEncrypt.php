@@ -7,6 +7,33 @@ class VccEncrypt
     /*$key = '12sdfsdafsdafafsdfsdfsdfsadfsdfsadfsdfasdfasdfdsafsdfsdfsdafsdfasdfsdfsdfafsdfsdfasdfsdfsadf3';
     $iv = substr($key, 0, 16);*/
     /**
+     * 前面解密型加密
+     * $string String 要加密的字符串
+     * $code String 密码，解密时的密码
+     * @return string
+     */
+    public static function encrypt($string,$code='a66208')
+    {
+        $code = md5($code);
+        $iv = substr($code,0,16);
+        $key = substr($code,16);
+        return base64_encode(openssl_encrypt($string,"AES-128-CBC",$key,OPENSSL_RAW_DATA,$iv));
+    }
+    /**
+     * 前面解密型解密
+     * $string String 要加密的字符串
+     * $code String 密码，解密时的密码
+     * @return string
+     */
+    public static function decrypt($string,$code='a66208')
+    {
+        $code = md5($code);
+        $iv = substr($code,0,16);
+        $key = substr($code,16);
+        return openssl_decrypt(base64_decode($string),"AES-128-CBC",$key,OPENSSL_RAW_DATA,$iv);
+    }
+
+    /**
      * 加密字符串
      * @param string $text 字符串
      * @param string $key 加密key
