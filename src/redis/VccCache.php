@@ -30,37 +30,55 @@ class VccCache
         $model = self::$model;
         return $redis->getset($model.$name,$val);
     }
-    /*259200=3天*/
-    public static function incr($name,$max=100000,$time=259200)
+    /*自增计数，当计数值大于最大值$count2进一,$get2为真时返回*/
+    public static function incr($name,$max=100000,$get2=0)
     {
         self::newSelf();
         $redis = self::$redis;
         $model = self::$model;
-        $count = $redis->get($model.$name);
-        if(!$count){
-            $count = 1;$redis->setex($model.$name, $time, 1);
-        }else{
-            $count = $redis->incr($model.$name);
-        }
+        $count = $redis->incr($model.$name);
         if($count>=$max){
-            $redis->del($model.$name);
-            return false;
+            $count = 0;
+            $redis->set($model.$name,0);
+            $count2 = $redis->incr($model.$name.'count2');
+            if($count2>=$max){
+                $redis->set($model.$name.'count2',0);
+            }
+        }
+        if($get2){
+            $count2 = (int)$redis->get($model.$name.'count2');
+            return [$count,$count2];
         }
         return $count;
     }
-    public static function push($name,$val,$max=1000000)
+    /*在原来的字符串后面拼接，每拼接一段加上分隔符|;| 如超过最大存储长度，将前面一半的字符串删除，返回数组*/
+    public static function push($name,$val,$max=100000000)
     {
         self::newSelf();
         $redis = self::$redis;
         $model = self::$model;
+        $f = '|;|';
+        //$redis->del($model.$name);
         if($redis->strlen ($model.$name)>$max){
-            $redis->del($model.$name);
-            return false;
+            $str = substr($redis->get($model.$name),$max/2);
+            $str = substr($str,strpos($str,$f)+strlen($f));
+            self::create($name,$str);
+        }else{
+            if($redis->strlen ($model.$name)>0){
+                $val = $f.$val;
+                $redis->append($model.$name,$val);
+            }else{
+                self::create($name,$val);
+            }
         }
-        return $redis->append($model.$name,$val);
+        $data = $redis->get($model.$name);
+        if(strpos($data,$f) === false){
+            return [$data];
+        }
+        return explode($f,$data);
     }
-    /*$time秒*/
-    public static function create($name,$val,$time=null)
+    /*$time秒，默认365天(365*24*60*60)*/
+    public static function create($name,$val,$time=31536000)
     {
         self::newSelf();
         $redis = self::$redis;
