@@ -8,6 +8,7 @@ class VccCache
 {
     public static $redis = null;
     public static $model = null;
+    private static $f = '|;|';
 
     public function __construct($name=1)
     {
@@ -51,32 +52,6 @@ class VccCache
         }
         return $count;
     }
-    /*在原来的字符串后面拼接，每拼接一段加上分隔符|;| 如超过最大存储长度，将前面一半的字符串删除，返回数组*/
-    public static function push($name,$val,$max=100000000)
-    {
-        self::newSelf();
-        $redis = self::$redis;
-        $model = self::$model;
-        $f = '|;|';
-        //$redis->del($model.$name);
-        if($redis->strlen ($model.$name)>$max){
-            $str = substr($redis->get($model.$name),$max/2);
-            $str = substr($str,strpos($str,$f)+strlen($f));
-            self::create($name,$str);
-        }else{
-            if($redis->strlen ($model.$name)>0){
-                $val = $f.$val;
-                $redis->append($model.$name,$val);
-            }else{
-                self::create($name,$val);
-            }
-        }
-        $data = $redis->get($model.$name);
-        if(strpos($data,$f) === false){
-            return [$data];
-        }
-        return explode($f,$data);
-    }
     /*$time秒，默认365天(365*24*60*60)*/
     public static function create($name,$val,$time=31536000)
     {
@@ -89,7 +64,69 @@ class VccCache
         }
         return $redis->set($model.$name, $val);
     }
-
+    /*在原来的字符串后面拼接，每拼接一段加上分隔符|;| 如超过最大存储长度，将前面一半的字符串删除，返回数组*/
+    public static function push($name,$val,$max=100000000)
+    {
+        self::newSelf();
+        $redis = self::$redis;
+        $model = self::$model;
+        $f = self::$f;
+        //$redis->del($model.$name);
+        if($redis->strlen ($model.$name)>$max){//判断字符串长度
+            $str = substr($redis->get($model.$name),$max/2);
+            $str = substr($str,strpos($str,$f)+strlen($f));
+            self::create($name,$str);
+        }else{
+            if($redis->strlen ($model.$name)>0){//如果原来有数据就进行追加，否则创建
+                $val = $f.$val;
+                $redis->append($model.$name,$val);
+            }else{
+                self::create($name,$val);
+            }
+        }
+        //return self::gets($name);
+        return ['state'=>1];
+    }
+    /*查拼接字符串返回数组*/
+    public static function gets($name)
+    {
+        self::newSelf();
+        $redis = self::$redis;
+        $model = self::$model;
+        $f = self::$f;
+        $data = $redis->get($model.$name);
+        if(strpos($data,$f) === false){
+            return [$data];
+        }
+        return explode($f,$data);
+    }
+    /*对拼接的字符串进行修改*/
+    public static function updates($name,$key,$val=null)
+    {
+        self::newSelf();
+        $redis = self::$redis;
+        $model = self::$model;
+        $f = self::$f;
+        $data = $redis->get($model.$name);
+        if(strpos($data,$f) === false){
+            if($key==0){
+                $data = $val;
+            }
+        }else{
+            $data = explode($f,$data);
+            if($val){
+                $data[$key] = $val;
+            }else{
+                unset($data[$key]);
+            }
+            $data = implode($f,$data);
+        }
+        if($data){
+            return self::create($name,$data);
+        }else{
+            return self::delete($name);
+        }
+    }
     /*查*/
     public static function get($name)
     {
